@@ -1,0 +1,9 @@
+const Log = require('../../logging-middleware');
+const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiIyMDIyY3NlLnIzODJAc3ZjZS5lZHUuaW4iLCJleHAiOjE3NTM3NzAzMDEsImlhdCI6MTc1Mzc2OTQwMSwiaXNzIjoiQWZmb3JkIE1lZGljYWwgVGVjaG5vbG9naWVzIFByaXZhdGUgTGltaXRlZCIsImp0aSI6Ijk2ZGE0MjI2LWI0NGMtNGRmZC1hZGNmLWYzODM1YTFiMTg4OSIsImxvY2FsZSI6ImVuLUlOIiwibmFtZSI6InNoYWlrIG1vaGFtbWFkIGFzcmFyIiwic3ViIjoiYjZlZjI2ZmUtOGM2NC00NzY0LTk3YjYtNTBjOWZkNThiZTA5In0sImVtYWlsIjoiMjAyMmNzZS5yMzgyQHN2Y2UuZWR1LmluIiwibmFtZSI6InNoYWlrIG1vaGFtbWFkIGFzcmFyIiwicm9sbE5vIjoiMjJiZmEwNTM4MiIsImFjY2Vzc0NvZGUiOiJQcmp5UUYiLCJjbGllbnRJRCI6ImI2ZWYyNmZlLThjNjQtNDc2NC05N2I2LTUwYzlmZDU4YmUwOSIsImNsaWVudFNlY3JldCI6ImZrZHVtVXlLdnRKR2dFU2oifQ.Qdc2iVPRy0tuw-usWb_xTge9FUbFegpmmSkf7Rq21qk"; 
+
+function requestLogger(req, res, next) {
+  Log("backend", "info", "middleware", `Incoming: ${req.method} ${req.url}`, ACCESS_TOKEN);
+  next();
+}
+
+module.exports = requestLogger;
